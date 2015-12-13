@@ -76,8 +76,8 @@ func decode(book json: JSONDictionary) throws -> StrictBook{
             throw JSONProcessingError.ResourcePointedByURLNotReachable
     }
 
-    let authorsArr = authors.componentsSeparatedByString(", ")//chracters.split{$0 == ","}.map(String.init)
-    let tagsArr = tags.componentsSeparatedByString(", ")//characters.split{$0 == ","}.map(String.init)
+    let authorsArr = authors.componentsSeparatedByString(", ")
+    let tagsArr = tags.componentsSeparatedByString(", ")
     
     var bookTags = [KCBookTag]()
 
@@ -96,7 +96,7 @@ func decode(book json: JSONDictionary) throws -> StrictBook{
 
 func decode(books json: JSONArray) -> [StrictBook]{
     do{
-        // Recorremos todos los personajes y los vamos guardando en el array
+        // Recorremos todos los libros y los vamos guardando en el array
         return try json.map({try decode(book: $0)})
         
     }catch{
@@ -110,7 +110,6 @@ func decodeJSON() -> [StrictBook]{
     do{
         if let url = NSBundle.mainBundle().URLForResource("books_readable.json"),
             data = NSData(contentsOfURL: url),
-            
             jsons = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? JSONArray{
                 decoded = decode(books: jsons)
         }
