@@ -12,6 +12,7 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var tags: UILabel!
     @IBOutlet weak var authors: UILabel!
+    @IBOutlet weak var photo: UIImageView!
 
     var detailModel: KCBook? {
         willSet {
@@ -23,13 +24,16 @@ class DetailViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if let model = self.detailModel{
-                    self.title = model.title
-                    //self.photo = photo
-                    self.authors.text = model.authors!.joinWithSeparator(", ")
-                    //self.tags.text = model.tags.map({$0.tagName}).joinWithSeparator(", ")
+            self.title = model.title
+            //self.photo = UIImage(contentsOfFile: String(contentsOfURL: model.image))
+            if let authors = model.authors,
+                tags = model.tags{
+                    self.authors.text = authors.joinWithSeparator(", ")
+                    self.tags.text = tags.map({$0.tagName}).joinWithSeparator(", ")
                     
-                    // TODO: Cargar estado del interruptor
-                    // propiedad = model.isFavorite
+            }
+            // TODO: Cargar estado del interruptor
+            // propiedad = model.isFavorite
             
         }
     }
