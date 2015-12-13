@@ -10,11 +10,11 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
+    @IBOutlet weak var tags: UILabel!
+    @IBOutlet weak var authors: UILabel!
 
-
-    var detailItem: AnyObject? {
-        didSet {
+    var detailModel: KCBook? {
+        willSet {
             // Update the view.
             self.configureView()
         }
@@ -22,10 +22,15 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.description
-            }
+        if let model = self.detailModel{
+                    self.title = model.title
+                    //self.photo = photo
+                    self.authors.text = model.authors!.joinWithSeparator(", ")
+                    //self.tags.text = model.tags.map({$0.tagName}).joinWithSeparator(", ")
+                    
+                    // TODO: Cargar estado del interruptor
+                    // propiedad = model.isFavorite
+            
         }
     }
 
