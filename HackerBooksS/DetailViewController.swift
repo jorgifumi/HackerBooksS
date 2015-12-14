@@ -13,6 +13,20 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var tags: UILabel!
     @IBOutlet weak var authors: UILabel!
     @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var favButton: UIBarButtonItem!
+    @IBAction func favorite(sender: AnyObject) {
+        
+            if favButton.tintColor == UIColor.blueColor() {
+                favButton.tintColor = UIColor.grayColor()
+            }else{
+                favButton.tintColor = UIColor.blueColor()
+            }
+
+            //Notification
+            //NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "favChanged", object: model.hashValue))
+        
+        
+    }
 
     var detailModel: KCBook? {
         willSet {
@@ -33,7 +47,12 @@ class DetailViewController: UIViewController {
                     
             }
             // TODO: Cargar estado del interruptor
-            // propiedad = model.isFavorite
+            if model.isFavorite {
+                favButton.tintColor = UIColor.blueColor()
+            }else{
+                favButton.tintColor = UIColor.grayColor()
+            }
+            
             
         }
     }

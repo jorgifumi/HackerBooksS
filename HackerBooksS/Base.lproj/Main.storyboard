@@ -105,6 +105,11 @@
                                             <constraint firstAttribute="height" constant="44" id="GVd-gO-buc"/>
                                         </constraints>
                                         <items>
+                                            <barButtonItem systemItem="add" id="3DC-Ro-QvN">
+                                                <connections>
+                                                    <action selector="favorite:" destination="JEX-9P-axG" id="4vj-Ah-lhX"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="C8X-J4-FaU"/>
                                             <barButtonItem title="Read" id="s9L-Cb-8AP">
                                                 <connections>
@@ -136,6 +141,7 @@
                     <navigationItem key="navigationItem" id="mOI-FS-AaM"/>
                     <connections>
                         <outlet property="authors" destination="P3T-O3-VUN" id="AMD-Sc-uVh"/>
+                        <outlet property="favButton" destination="3DC-Ro-QvN" id="q4Y-Fd-5jC"/>
                         <outlet property="photo" destination="Lvb-LH-tsj" id="PZ7-ok-1gf"/>
                         <outlet property="tags" destination="ZZo-XW-fyG" id="lF3-hC-mOs"/>
                     </connections>

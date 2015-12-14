@@ -12,7 +12,7 @@ class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     
-    let model : KCLibrary? = KCLibrary(strictBooksArray: decodeJSON())
+    var model : KCLibrary? = KCLibrary(strictBooksArray: decodeJSON())
 
     @IBOutlet weak var sortType: UISegmentedControl!
     @IBAction func switchSort() {
@@ -28,7 +28,8 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
- 
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "favDidChange:", name: "favChanged", object: nil)
+        
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
@@ -45,7 +46,19 @@ class MasterViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+//    func favDidChange(notification : NSNotification){
+//        // Como averiguo el libro que se ha puesto favorito?
+//        print("fav")
+//     
+//        model!.addBookForTag((notification.object as? KCBook)!, tag: KCBookTag(withName: "Favorite"))
+//        updateModel()
+//    }
+//
+//    func updateModel(){
+//        let updatedModel = model?.books
+//        model = KCLibrary(booksArray: updatedModel!)
+//        self.tableView.reloadData()
+//    }
 
     // MARK: - Segues
 
@@ -61,12 +74,7 @@ class MasterViewController: UITableViewController {
                     book = model?.bookAtIndex(indexPath.item, tag: KCBookTag(withName: (model?.tags[indexPath.section].tagName)!))
                 }
                 
-                //Notification
-                let notification = NSNotification(name: "newBook", object: book!)
-                
-                NSNotificationCenter.defaultCenter().postNotification(notification)
 
-                //let object = objects[indexPath.row] as! NSDate
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.detailModel = book
                 controller.navigationItem.rightBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -119,7 +127,9 @@ class MasterViewController: UITableViewController {
         //cell.imageView?.image = UIImage(contentsOfFile: book?.image)
         return cell
     }
-
-
+//
+//    deinit{
+//        NSNotificationCenter.defaultCenter().removeObserver(self)
+//    }
 }
 

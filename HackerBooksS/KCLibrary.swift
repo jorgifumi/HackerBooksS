@@ -97,7 +97,14 @@ class KCLibrary {
         }
         
         return nil
-//        return booksForTag(tag)![index]
+
     }
+    
+    // Añade un libro en una categoría
+    func addBookForTag(book: KCBook, tag: KCBookTag) {
+        
+        library.addObject(book, forKey: tag)
+    }
+
     
 }
