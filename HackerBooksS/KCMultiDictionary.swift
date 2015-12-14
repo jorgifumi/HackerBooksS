@@ -71,35 +71,3 @@ public struct KCMultiDictionary<KeyType: Hashable, ValueType: Hashable> {
         }
     }
 }
-
-
-//class KCMultidictionary : NSObject {
-//    
-//    
-//    //MARK: - Properties
-//    var dict : [NSObject : AnyObject]
-//    
-//    //MARK: - Init
-//    override init() {
-//        dict = [NSObject : AnyObject]()
-//        super.init()
-//    }
-//    
-//    //MARK: - Accessors
-//    func addObject(object: AnyObject, forKey key: NSObject){
-//        
-//        var objs : Set = dict[key]
-//        if objs {
-//            objs = Dictionary()
-//        }
-//        
-//        objs.addObject(object)
-//        dict.setObject(objs, forKey: key)
-//        
-//    }
-//    
-//    func objectsForKey(key: protocol<NSCopying>) -> Set{
-//        
-//        var objs : Set = dict.objectForKey(key)
-//    }
-//}

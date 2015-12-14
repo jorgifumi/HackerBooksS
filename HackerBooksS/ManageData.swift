@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 func downloadJSON(){
     
@@ -36,13 +37,7 @@ func downloadJSON(){
         try "prueba".writeToURL(url!, atomically: true, encoding: NSUTF8StringEncoding)
         var str:AnyObject?
         
-        let task = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: "http://httpbin.org/get")!, completionHandler: { (data, response, error) -> Void in
-            
-            str = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
-            print(str)
-        })
-        task.resume()
-        
+        downloadFile(fromURL: url!, toURL: <#T##String#>)
     }catch{
         print("Error al guardar los datos")
         
@@ -50,6 +45,23 @@ func downloadJSON(){
     
     
     
+
+}
+
+
+func downloadFile(fromURL url: NSURL, toURL: String) {
+    
+    let task = NSURLSession.sharedSession().dataTaskWithURL( url, completionHandler: {
+        (data, response, error) -> Void in
+        dispatch_async(dispatch_get_main_queue()) {
+            if let data = data {
+                
+                data.writeToFile(toURL, atomically: true)
+                
+            }
+        }
+    })
+    task.resume()
 
 }
 
