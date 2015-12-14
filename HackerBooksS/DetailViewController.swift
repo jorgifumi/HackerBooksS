@@ -48,7 +48,20 @@ class DetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "readBook" {
+            
+            if let controller = segue.destinationViewController as? PDFViewController {
+                if let model = self.detailModel{
+                    controller.title  = model.title
+                    controller.pdfUrl = model.pdf
+                }
+            }
+            
+        }
+    }
 
 }
 

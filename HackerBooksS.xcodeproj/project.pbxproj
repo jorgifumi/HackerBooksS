@@ -20,6 +20,7 @@
 		686D2E941C1E05560087AB20 /* KCBookTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D2E8D1C1E05560087AB20 /* KCBookTag.swift */; };
 		686D2E951C1E05560087AB20 /* KCLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D2E8E1C1E05560087AB20 /* KCLibrary.swift */; };
 		686D2E961C1E05560087AB20 /* KCMultiDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D2E8F1C1E05560087AB20 /* KCMultiDictionary.swift */; };
+		686D2EA01C1E436F0087AB20 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D2E9F1C1E436F0087AB20 /* PDFViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		686D2E8D1C1E05560087AB20 /* KCBookTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCBookTag.swift; sourceTree = "<group>"; };
 		686D2E8E1C1E05560087AB20 /* KCLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCLibrary.swift; sourceTree = "<group>"; };
 		686D2E8F1C1E05560087AB20 /* KCMultiDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCMultiDictionary.swift; sourceTree = "<group>"; };
+		686D2E9F1C1E436F0087AB20 /* PDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			children = (
 				686D2E771C1E03EA0087AB20 /* MasterViewController.swift */,
 				686D2E791C1E03EA0087AB20 /* DetailViewController.swift */,
+				686D2E9F1C1E436F0087AB20 /* PDFViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				686D2E961C1E05560087AB20 /* KCMultiDictionary.swift in Sources */,
 				686D2E781C1E03EA0087AB20 /* MasterViewController.swift in Sources */,
 				686D2E941C1E05560087AB20 /* KCBookTag.swift in Sources */,
+				686D2EA01C1E436F0087AB20 /* PDFViewController.swift in Sources */,
 				686D2E761C1E03EA0087AB20 /* AppDelegate.swift in Sources */,
 				686D2E951C1E05560087AB20 /* KCLibrary.swift in Sources */,
 				686D2E931C1E05560087AB20 /* KCBook.swift in Sources */,
@@ -351,6 +355,7 @@
 				686D2E881C1E03EA0087AB20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

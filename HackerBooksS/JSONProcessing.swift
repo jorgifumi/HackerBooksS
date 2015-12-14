@@ -71,7 +71,7 @@ func decode(book json: JSONDictionary) throws -> StrictBook{
             throw JSONProcessingError.ResourcePointedByURLNotReachable
     }
     
-    guard let pdfUrl = json[JSONKeys.image_url.rawValue] as? String,
+    guard let pdfUrl = json[JSONKeys.pdf_url.rawValue] as? String,
         pdf = NSURL(string: pdfUrl) else{
             throw JSONProcessingError.ResourcePointedByURLNotReachable
     }
