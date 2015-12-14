@@ -38,9 +38,11 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jyR-jp-EvO">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lvb-LH-tsj">
-                                                <rect key="frame" x="5" y="0.0" width="590" height="442"/>
-                                            </imageView>
+                                            <webView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="cSz-cu-OpQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="442"/>
+                                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                                <dataDetectorType key="dataDetectorTypes"/>
+                                            </webView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ceQ-Rb-bdi">
                                                 <rect key="frame" x="0.0" y="442" width="600" height="50"/>
                                                 <subviews>
@@ -91,11 +93,11 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="ceQ-Rb-bdi" firstAttribute="top" secondItem="Lvb-LH-tsj" secondAttribute="bottom" id="01H-ob-FAg"/>
-                                            <constraint firstAttribute="trailing" secondItem="Lvb-LH-tsj" secondAttribute="trailing" constant="5" id="3nT-wh-Lvz"/>
+                                            <constraint firstItem="cSz-cu-OpQ" firstAttribute="leading" secondItem="jyR-jp-EvO" secondAttribute="leading" id="LLl-s4-LOZ"/>
                                             <constraint firstItem="ceQ-Rb-bdi" firstAttribute="leading" secondItem="jyR-jp-EvO" secondAttribute="leading" id="QcP-yB-gG0"/>
-                                            <constraint firstItem="Lvb-LH-tsj" firstAttribute="leading" secondItem="jyR-jp-EvO" secondAttribute="leading" constant="5" id="ZGR-J4-Krl"/>
+                                            <constraint firstAttribute="trailing" secondItem="cSz-cu-OpQ" secondAttribute="trailing" id="fHp-RK-VaJ"/>
                                             <constraint firstAttribute="trailing" secondItem="ceQ-Rb-bdi" secondAttribute="trailing" id="pfF-lI-J9G"/>
+                                            <constraint firstItem="cSz-cu-OpQ" firstAttribute="top" secondItem="jyR-jp-EvO" secondAttribute="top" id="qqH-at-bcb"/>
                                             <constraint firstAttribute="bottom" secondItem="ceQ-Rb-bdi" secondAttribute="bottom" id="x9d-mW-NQr"/>
                                         </constraints>
                                     </stackView>
@@ -142,7 +144,7 @@
                     <connections>
                         <outlet property="authors" destination="P3T-O3-VUN" id="AMD-Sc-uVh"/>
                         <outlet property="favButton" destination="3DC-Ro-QvN" id="q4Y-Fd-5jC"/>
-                        <outlet property="photo" destination="Lvb-LH-tsj" id="PZ7-ok-1gf"/>
+                        <outlet property="photo" destination="cSz-cu-OpQ" id="NMT-ME-6XS"/>
                         <outlet property="tags" destination="ZZo-XW-fyG" id="lF3-hC-mOs"/>
                     </connections>
                 </viewController>
@@ -168,6 +170,7 @@
                                     <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBg-aB-FuI">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                        <dataDetectorType key="dataDetectorTypes"/>
                                     </webView>
                                 </subviews>
                             </stackView>

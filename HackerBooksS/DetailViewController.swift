@@ -12,7 +12,7 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var tags: UILabel!
     @IBOutlet weak var authors: UILabel!
-    @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var photo: UIWebView!
     @IBOutlet weak var favButton: UIBarButtonItem!
     @IBAction func favorite(sender: AnyObject) {
         
@@ -39,7 +39,7 @@ class DetailViewController: UIViewController {
         // Update the user interface for the detail item.
         if let model = self.detailModel{
             self.title = model.title
-            //self.photo = UIImage(contentsOfFile: String(contentsOfURL: model.image))
+            self.photo.loadRequest(NSURLRequest(URL: model.image))
             if let authors = model.authors,
                 tags = model.tags{
                     self.authors.text = authors.joinWithSeparator(", ")
