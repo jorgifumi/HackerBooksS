@@ -115,6 +115,7 @@ class MasterViewController: UITableViewController {
         }
         
         cell.textLabel?.text = book?.title
+        cell.detailTextLabel?.text = book?.authors!.joinWithSeparator(", ")
         //cell.imageView?.image = UIImage(contentsOfFile: book?.image)
         return cell
     }
