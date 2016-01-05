@@ -106,13 +106,18 @@ func decode(books json: JSONArray) -> [StrictBook]{
 
 func decodeJSON() -> [StrictBook]{
     // Preparo el modelo
+    downloadJSON()
     var decoded = [StrictBook]()
     do{
-        if let url = NSBundle.mainBundle().URLForResource("books_readable.json"),
-            data = NSData(contentsOfURL: url),
+        let fm = NSFileManager.defaultManager()
+        if let dataUrl = fm.URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).first?.URLByAppendingPathComponent("books_readable.json"),
+            data = NSData(contentsOfURL: dataUrl),
             jsons = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? JSONArray{
                 decoded = decode(books: jsons)
+
+            
         }
+
     }catch{
         fatalError("El modelo se fue al carajo")
     }

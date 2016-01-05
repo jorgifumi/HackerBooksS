@@ -28,17 +28,17 @@ func downloadJSON(){
             // Guardarlo en Documents
             if let dataUrl = fm.URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).first?.URLByAppendingPathComponent("books_readable.json") {
                 data.writeToURL(dataUrl, atomically: true)
-            
+                print("Downloading...")
+                // Marcamos que ya se ha iniciado alguna vez
+                ud.setBool(true, forKey: firstRun)
             }
-            isFirstRun?.setDefaults()
         }
-        
-        
-        
+    }else{
+        // Ya existen datos
+        print("Ya existen datos")
     }
 }
-//    else{
-//        // Ya existen datos, poner ruta local
+//
 //        
 //    
 //        if let tempUrl = fm.URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).first?.URLByAppendingPathComponent("books_readable.json") {
