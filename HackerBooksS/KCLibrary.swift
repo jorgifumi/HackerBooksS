@@ -16,7 +16,7 @@ class KCLibrary {
     
     
     
-    //    //Array de libros
+    //Array de libros
     var books   : [KCBook]{
         get{
             return library.allObjects().sort({$0.title < $1.title})
