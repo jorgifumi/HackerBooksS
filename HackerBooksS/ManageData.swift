@@ -35,9 +35,12 @@ func downloadJSON(){
         }
     }else{
         // Ya existen datos
-        print("Ya existen datos")
+        print("Loading data from disk...")
     }
 }
+
+
+
 //
 //        
 //    
