@@ -16,7 +16,7 @@ class KCLibrary {
     
     
     
-    //Array de libros
+    //Array de libros únicos ordenados alfabéticamente
     var books   : [KCBook]{
         get{
             return library.allObjects().sort({$0.title < $1.title})
@@ -39,6 +39,7 @@ class KCLibrary {
         }
     }
     
+    //Número de tags únicos
     var tagsCount : Int{
         get{
             return library.allKeys.count

@@ -39,7 +39,10 @@ func downloadJSON(){
     }
 }
 
-
+func downloadData(){
+    // Descarga los datos de imágenes y libros si no existen ya en local.
+    
+}
 
 //
 //        
