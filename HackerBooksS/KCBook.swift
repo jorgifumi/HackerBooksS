@@ -25,11 +25,9 @@ class KCBook : Equatable, Hashable {
         set{
             if newValue {
                 self.tags?.append(KCBookTag(withName: "Favorite"))
-                print("fav")
             }else{
                 //TODO : Implementar que elimine el tag favorito, ahora presuponemos que es el último pero podría no serlo...
                 self.tags?.removeLast()
-                print("desfav")
             }
             
         }

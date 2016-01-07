@@ -28,8 +28,7 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "favDidChangeAdd:", name: "addFav", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "favDidChangeDel:", name: "delFav", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "favDidChange:", name: "switchFav", object: nil)
         
         if let split = self.splitViewController {
             let controllers = split.viewControllers
@@ -47,25 +46,21 @@ class MasterViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func favDidChangeAdd(notification : NSNotification){
+    func favDidChange(notification : NSNotification){
         // Añado el libro a favorito
         let updatedModel = (notification.object as? KCBook)!
-        model!.addBookForTag(updatedModel, tag: KCBookTag(withName: "Favorite"))
+        if updatedModel.isFavorite {
+            model!.removeBookForTag(updatedModel, tag: KCBookTag(withName: "Favorite"))
+            updatedModel.isFavorite = false
+        }else{
+            model!.addBookForTag(updatedModel, tag: KCBookTag(withName: "Favorite"))
+            updatedModel.isFavorite = true
+        }
         
-        updatedModel.isFavorite = true
-        self.detailViewController?.detailModel = updatedModel
+
         updateModel()
     }
     
-    func favDidChangeDel(notification : NSNotification){
-        // Quito el libro de favoritos
-        let updatedModel = (notification.object as? KCBook)!
-        model!.removeBookForTag(updatedModel, tag: KCBookTag(withName: "Favorite"))
-        
-        updatedModel.isFavorite = false
-        self.detailViewController?.detailModel = updatedModel
-        updateModel()
-    }
 
     func updateModel(){
         

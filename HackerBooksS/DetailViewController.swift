@@ -15,18 +15,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var photo: UIWebView!
     @IBOutlet weak var favButton: UIBarButtonItem!
     @IBAction func favorite(sender: AnyObject) {
-        
-        if detailModel!.isFavorite {
-            // Notification
-            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "delFav", object: detailModel!))
-        }else{
-            // Notification
-            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "addFav", object: detailModel!))
 
-        }
-
-        
-        
+            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "switchFav", object: detailModel!))
     }
 
     var detailModel: KCBook? {
