@@ -13,7 +13,7 @@ class KCBook : Equatable, Hashable {
     //MARK - Properties
     let title       : String
     let authors     : [String]?
-    let tags        : [KCBookTag]?
+    var tags        : [KCBookTag]?
     let image       : NSURL
     let pdf         : NSURL
     
@@ -23,7 +23,15 @@ class KCBook : Equatable, Hashable {
             return tags!.contains(KCBookTag.favoriteBookTag())
         }
         set{
-            //self.isFavorite = newValue
+            if newValue {
+                self.tags?.append(KCBookTag(withName: "Favorite"))
+                print("fav")
+            }else{
+                //TODO : Implementar que elimine el tag favorito, ahora presuponemos que es el último pero podría no serlo...
+                self.tags?.removeLast()
+                print("desfav")
+            }
+            
         }
     }
     

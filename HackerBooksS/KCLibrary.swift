@@ -107,5 +107,11 @@ class KCLibrary {
         library.addObject(book, forKey: tag)
     }
 
+    // Quita un libro de una categoría
+    func removeBookForTag(book: KCBook, tag: KCBookTag) {
+        
+        library.removeObject(book, forKey: tag)
+    }
+
     
 }

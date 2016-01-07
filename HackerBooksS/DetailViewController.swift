@@ -16,14 +16,15 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var favButton: UIBarButtonItem!
     @IBAction func favorite(sender: AnyObject) {
         
-            if favButton.tintColor == UIColor.blueColor() {
-                favButton.tintColor = UIColor.grayColor()
-            }else{
-                favButton.tintColor = UIColor.blueColor()
-            }
+        if detailModel!.isFavorite {
+            // Notification
+            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "delFav", object: detailModel!))
+        }else{
+            // Notification
+            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "addFav", object: detailModel!))
 
-            //Notification
-            //NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "favChanged", object: model.hashValue))
+        }
+
         
         
     }

@@ -28,7 +28,8 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "favDidChange:", name: "favChanged", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "favDidChangeAdd:", name: "addFav", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "favDidChangeDel:", name: "delFav", object: nil)
         
         if let split = self.splitViewController {
             let controllers = split.viewControllers
@@ -46,19 +47,30 @@ class MasterViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-//    func favDidChange(notification : NSNotification){
-//        // Como averiguo el libro que se ha puesto favorito?
-//        print("fav")
-//     
-//        model!.addBookForTag((notification.object as? KCBook)!, tag: KCBookTag(withName: "Favorite"))
-//        updateModel()
-//    }
-//
-//    func updateModel(){
-//        let updatedModel = model?.books
-//        model = KCLibrary(booksArray: updatedModel!)
-//        self.tableView.reloadData()
-//    }
+    func favDidChangeAdd(notification : NSNotification){
+        // Añado el libro a favorito
+        let updatedModel = (notification.object as? KCBook)!
+        model!.addBookForTag(updatedModel, tag: KCBookTag(withName: "Favorite"))
+        
+        updatedModel.isFavorite = true
+        self.detailViewController?.detailModel = updatedModel
+        updateModel()
+    }
+    
+    func favDidChangeDel(notification : NSNotification){
+        // Quito el libro de favoritos
+        let updatedModel = (notification.object as? KCBook)!
+        model!.removeBookForTag(updatedModel, tag: KCBookTag(withName: "Favorite"))
+        
+        updatedModel.isFavorite = false
+        self.detailViewController?.detailModel = updatedModel
+        updateModel()
+    }
+
+    func updateModel(){
+        
+        self.tableView.reloadData()
+    }
 
     // MARK: - Segues
 
@@ -86,7 +98,7 @@ class MasterViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        // Return the number of sections
         if sortByTitle {
             return 1
         }else{
@@ -96,7 +108,7 @@ class MasterViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        // Return the number of rows
         if sortByTitle {
             return model?.booksCount ?? 0
         }else{
@@ -127,9 +139,9 @@ class MasterViewController: UITableViewController {
         //cell.imageView?.image = UIImage(contentsOfFile: book?.image)
         return cell
     }
-//
-//    deinit{
-//        NSNotificationCenter.defaultCenter().removeObserver(self)
-//    }
+
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
 }
 
