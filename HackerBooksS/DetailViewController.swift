@@ -61,6 +61,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "bookChanged:", name: "bookDidChange", object: nil)
         self.configureView()
     }
 
@@ -81,6 +82,14 @@ class DetailViewController: UIViewController {
             }
             
         }
+    }
+    
+    func bookChanged(notification : NSNotification) {
+        self.configureView()
+    }
+    
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
 }

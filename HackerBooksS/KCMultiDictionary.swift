@@ -42,12 +42,13 @@ public struct KCMultiDictionary<KeyType: Hashable, ValueType: Hashable> {
     }
     
     public mutating func removeObject(object: ValueType, forKey key: KeyType) {
-        if dict[key] != nil {
-            dict[key]?.remove(object)
-            if ((dict[key]?.isEmpty) == true) {
-                dict[key]?.removeAll()
-            }else{
+        if var objs = dict[key] {
+
+            objs.remove(object)
+            if ((objs.isEmpty) == true) {
                 dict.removeValueForKey(key)
+            }else{
+                dict[key] = objs
             }
         }
 

@@ -107,7 +107,7 @@
                                             <constraint firstAttribute="height" constant="44" id="GVd-gO-buc"/>
                                         </constraints>
                                         <items>
-                                            <barButtonItem systemItem="add" id="3DC-Ro-QvN">
+                                            <barButtonItem title="Fav" id="3DC-Ro-QvN">
                                                 <connections>
                                                     <action selector="favorite:" destination="JEX-9P-axG" id="4vj-Ah-lhX"/>
                                                 </connections>

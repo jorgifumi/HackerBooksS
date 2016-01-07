@@ -70,6 +70,9 @@ class MasterViewController: UITableViewController {
     func updateModel(){
         
         self.tableView.reloadData()
+        // Notification
+        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "bookDidChange", object: nil))
+
     }
 
     // MARK: - Segues
