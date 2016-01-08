@@ -29,6 +29,7 @@ class MasterViewController: UITableViewController, AGTAsyncImageDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "favDidChange:", name: "switchFav", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "bookChanged:", name: "bookDidChange", object: nil)
         
         if let split = self.splitViewController {
             let controllers = split.viewControllers
@@ -50,24 +51,22 @@ class MasterViewController: UITableViewController, AGTAsyncImageDelegate {
         // Añado el libro a favorito
         let updatedModel = (notification.object as? KCBook)!
         if updatedModel.isFavorite {
-            model!.removeBookForTag(updatedModel, tag: KCBookTag(withName: "Favorite"))
             updatedModel.isFavorite = false
+            model!.removeBookForTag(updatedModel, tag: KCBookTag(withName: "Favorite"))
+            
         }else{
-            model!.addBookForTag(updatedModel, tag: KCBookTag(withName: "Favorite"))
             updatedModel.isFavorite = true
+            model!.addBookForTag(updatedModel, tag: KCBookTag(withName: "Favorite"))
+            
         }
         
-
-        updateModel()
     }
     
 
-    func updateModel(){
+    func bookChanged(notification : NSNotification){
         
         self.tableView.reloadData()
-        // Notification
-        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "bookDidChange", object: nil))
-
+        
     }
 
     // MARK: - Segues

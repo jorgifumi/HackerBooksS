@@ -105,12 +105,18 @@ class KCLibrary {
     func addBookForTag(book: KCBook, tag: KCBookTag) {
         
         library.addObject(book, forKey: tag)
+        // Notification
+        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "bookDidChange", object: nil))
+
     }
 
     // Quita un libro de una categoría
     func removeBookForTag(book: KCBook, tag: KCBookTag) {
         
         library.removeObject(book, forKey: tag)
+        // Notification
+        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "bookDidChange", object: nil))
+
     }
 
     
