@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController, AGTAsyncImageDelegate {
 
     var detailViewController: DetailViewController? = nil
     
@@ -134,10 +134,20 @@ class MasterViewController: UITableViewController {
         
         cell.textLabel?.text = book?.title
         cell.detailTextLabel?.text = book?.authors!.joinWithSeparator(", ")
-        //cell.imageView?.image = UIImage(contentsOfFile: book?.image)
+        
+        let asyncImage = AGTAsyncImage(URL: book?.image, defaultImage: UIImage(named: "emptyBookCover.png"))
+        asyncImage.delegate = self
+
+        cell.imageView?.image = asyncImage.image
         return cell
     }
 
+    func asyncImageDidChange(aImage: AGTAsyncImage!) {
+        
+        self.tableView.reloadData()
+    }
+
+    
     deinit{
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }

@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68246C531C4010120053D89A /* AGTAsyncImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 68246C511C4010120053D89A /* AGTAsyncImage.m */; };
+		68246C541C4010120053D89A /* emptyBookCover.png in Resources */ = {isa = PBXBuildFile; fileRef = 68246C521C4010120053D89A /* emptyBookCover.png */; };
+		68246C571C401D440053D89A /* KCAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68246C561C401D440053D89A /* KCAsyncImage.swift */; };
 		686D2E761C1E03EA0087AB20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D2E751C1E03EA0087AB20 /* AppDelegate.swift */; };
 		686D2E781C1E03EA0087AB20 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D2E771C1E03EA0087AB20 /* MasterViewController.swift */; };
 		686D2E7A1C1E03EA0087AB20 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D2E791C1E03EA0087AB20 /* DetailViewController.swift */; };
 		686D2E7D1C1E03EA0087AB20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 686D2E7B1C1E03EA0087AB20 /* Main.storyboard */; };
 		686D2E7F1C1E03EA0087AB20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 686D2E7E1C1E03EA0087AB20 /* Assets.xcassets */; };
 		686D2E821C1E03EA0087AB20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 686D2E801C1E03EA0087AB20 /* LaunchScreen.storyboard */; };
-		686D2E911C1E05560087AB20 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D2E8A1C1E05560087AB20 /* FoundationExtensions.swift */; };
 		686D2E921C1E05560087AB20 /* JSONProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D2E8B1C1E05560087AB20 /* JSONProcessing.swift */; };
 		686D2E931C1E05560087AB20 /* KCBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D2E8C1C1E05560087AB20 /* KCBook.swift */; };
 		686D2E941C1E05560087AB20 /* KCBookTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D2E8D1C1E05560087AB20 /* KCBookTag.swift */; };
@@ -24,6 +26,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		68246C4F1C4010120053D89A /* HackerBooksS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackerBooksS-Bridging-Header.h"; sourceTree = "<group>"; };
+		68246C501C4010120053D89A /* AGTAsyncImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTAsyncImage.h; sourceTree = "<group>"; };
+		68246C511C4010120053D89A /* AGTAsyncImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTAsyncImage.m; sourceTree = "<group>"; };
+		68246C521C4010120053D89A /* emptyBookCover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyBookCover.png; sourceTree = "<group>"; };
+		68246C561C401D440053D89A /* KCAsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCAsyncImage.swift; sourceTree = "<group>"; };
 		686D2E721C1E03EA0087AB20 /* HackerBooksS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBooksS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		686D2E751C1E03EA0087AB20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		686D2E771C1E03EA0087AB20 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -32,7 +39,6 @@
 		686D2E7E1C1E03EA0087AB20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		686D2E811C1E03EA0087AB20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		686D2E831C1E03EA0087AB20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		686D2E8A1C1E05560087AB20 /* FoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		686D2E8B1C1E05560087AB20 /* JSONProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONProcessing.swift; sourceTree = "<group>"; };
 		686D2E8C1C1E05560087AB20 /* KCBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCBook.swift; sourceTree = "<group>"; };
 		686D2E8D1C1E05560087AB20 /* KCBookTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCBookTag.swift; sourceTree = "<group>"; };
@@ -53,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		68246C551C40102C0053D89A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				68246C521C4010120053D89A /* emptyBookCover.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		686D2E691C1E03EA0087AB20 = {
 			isa = PBXGroup;
 			children = (
@@ -72,8 +86,8 @@
 		686D2E741C1E03EA0087AB20 /* HackerBooksS */ = {
 			isa = PBXGroup;
 			children = (
+				68246C551C40102C0053D89A /* Resources */,
 				686D2E9C1C1E21080087AB20 /* Utils */,
-				686D2E9A1C1E05940087AB20 /* Framework */,
 				686D2E981C1E05750087AB20 /* Model */,
 				686D2E751C1E03EA0087AB20 /* AppDelegate.swift */,
 				686D2E991C1E05840087AB20 /* Controllers */,
@@ -106,19 +120,15 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		686D2E9A1C1E05940087AB20 /* Framework */ = {
-			isa = PBXGroup;
-			children = (
-				686D2E8A1C1E05560087AB20 /* FoundationExtensions.swift */,
-			);
-			name = Framework;
-			sourceTree = "<group>";
-		};
 		686D2E9C1C1E21080087AB20 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				68246C501C4010120053D89A /* AGTAsyncImage.h */,
+				68246C511C4010120053D89A /* AGTAsyncImage.m */,
 				686D2E8B1C1E05560087AB20 /* JSONProcessing.swift */,
 				686D2E9D1C1E21270087AB20 /* ManageData.swift */,
+				68246C4F1C4010120053D89A /* HackerBooksS-Bridging-Header.h */,
+				68246C561C401D440053D89A /* KCAsyncImage.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -184,6 +194,7 @@
 			files = (
 				686D2E821C1E03EA0087AB20 /* LaunchScreen.storyboard in Resources */,
 				686D2E7F1C1E03EA0087AB20 /* Assets.xcassets in Resources */,
+				68246C541C4010120053D89A /* emptyBookCover.png in Resources */,
 				686D2E7D1C1E03EA0087AB20 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,17 +206,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				686D2E911C1E05560087AB20 /* FoundationExtensions.swift in Sources */,
 				686D2E7A1C1E03EA0087AB20 /* DetailViewController.swift in Sources */,
 				686D2E961C1E05560087AB20 /* KCMultiDictionary.swift in Sources */,
 				686D2E781C1E03EA0087AB20 /* MasterViewController.swift in Sources */,
 				686D2E9E1C1E21270087AB20 /* ManageData.swift in Sources */,
+				68246C571C401D440053D89A /* KCAsyncImage.swift in Sources */,
 				686D2E941C1E05560087AB20 /* KCBookTag.swift in Sources */,
 				686D2EA01C1E436F0087AB20 /* PDFViewController.swift in Sources */,
 				686D2E761C1E03EA0087AB20 /* AppDelegate.swift in Sources */,
 				686D2E951C1E05560087AB20 /* KCLibrary.swift in Sources */,
 				686D2E931C1E05560087AB20 /* KCBook.swift in Sources */,
 				686D2E921C1E05560087AB20 /* JSONProcessing.swift in Sources */,
+				68246C531C4010120053D89A /* AGTAsyncImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,10 +330,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HackerBooksS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jf.HackerBooksS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HackerBooksS/HackerBooksS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -329,10 +344,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HackerBooksS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jf.HackerBooksS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HackerBooksS/HackerBooksS-Bridging-Header.h";
 			};
 			name = Release;
 		};

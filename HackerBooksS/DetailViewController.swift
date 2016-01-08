@@ -8,11 +8,11 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, AGTAsyncImageDelegate {
 
     @IBOutlet weak var tags: UILabel!
     @IBOutlet weak var authors: UILabel!
-    @IBOutlet weak var photo: UIWebView!
+    @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var favButton: UIBarButtonItem!
     @IBAction func favorite(sender: AnyObject) {
 
@@ -29,8 +29,10 @@ class DetailViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if let model = self.detailModel{
+            let asyncImage = AGTAsyncImage(URL: model.image, defaultImage: UIImage(named: "emptyBookCover.png"))
+            asyncImage.delegate = self
             self.title = model.title
-            self.photo.loadRequest(NSURLRequest(URL: model.image))
+            self.photo.image = asyncImage.image
             if let authors = model.authors,
                 tags = model.tags{
                     self.authors.text = authors.joinWithSeparator(", ")
@@ -72,6 +74,11 @@ class DetailViewController: UIViewController {
             }
             
         }
+    }
+    
+    func asyncImageDidChange(aImage: AGTAsyncImage!) {
+        
+        self.configureView()
     }
     
     func bookChanged(notification : NSNotification) {
