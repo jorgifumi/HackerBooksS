@@ -1,5 +1,5 @@
 //
-//  KCAsyncImage.swift
+//  KCAsyncPDF.swift
 //  HackerBooksS
 //
 //  Created by Jorge Miguel Lucena Pino on 8/1/16.
@@ -7,3 +7,5 @@
 //
 
 import UIKit
+
+// Crear clase basada en AGTAsyncImage pero que descargue PDF y en swift
