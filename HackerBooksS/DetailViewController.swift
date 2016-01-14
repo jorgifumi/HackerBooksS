@@ -39,7 +39,7 @@ class DetailViewController: UIViewController, AGTAsyncImageDelegate {
                     self.tags.text = tags.map({$0.tagName}).joinWithSeparator(", ")
                     
             }
-            // TODO: Cargar estado del interruptor
+            // Cargar estado del interruptor
             if model.isFavorite {
                 favButton.tintColor = UIColor.blueColor()
             }else{
@@ -54,6 +54,7 @@ class DetailViewController: UIViewController, AGTAsyncImageDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "bookChanged:", name: "bookDidChange", object: nil)
+
         self.configureView()
     }
 
@@ -82,8 +83,12 @@ class DetailViewController: UIViewController, AGTAsyncImageDelegate {
     }
     
     func bookChanged(notification : NSNotification) {
+        detailModel = notification.object as? KCBook
         self.configureView()
     }
+    
+    
+    
     
     deinit{
         NSNotificationCenter.defaultCenter().removeObserver(self)

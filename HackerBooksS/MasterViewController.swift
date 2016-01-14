@@ -13,7 +13,7 @@ class MasterViewController: UITableViewController, AGTAsyncImageDelegate {
     var detailViewController: DetailViewController? = nil
     
     var model : KCLibrary? = KCLibrary(strictBooksArray: decodeJSON())
-
+    
     @IBOutlet weak var sortType: UISegmentedControl!
     @IBAction func switchSort() {
         self.tableView.reloadData()
@@ -71,26 +71,26 @@ class MasterViewController: UITableViewController, AGTAsyncImageDelegate {
 
     // MARK: - Segues
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-                
-                let book : KCBook?
-                
-                if sortByTitle {
-                    book = model?.books[indexPath.row]
-                }else{
-                    book = model?.bookAtIndex(indexPath.item, tag: KCBookTag(withName: (model?.tags[indexPath.section].tagName)!))
-                }
-                
-
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.detailModel = book
-                controller.navigationItem.rightBarButtonItem = self.splitViewController?.displayModeButtonItem()
-                controller.navigationItem.leftItemsSupplementBackButton = true
-            }
-        }
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "showDetail" {
+//            if let indexPath = self.tableView.indexPathForSelectedRow {
+//                
+//                let book : KCBook?
+//                
+//                if sortByTitle {
+//                    book = model?.books[indexPath.row]
+//                }else{
+//                    book = model?.bookAtIndex(indexPath.item, tag: KCBookTag(withName: (model?.tags[indexPath.section].tagName)!))
+//                }
+//                
+//
+//                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+//                controller.detailModel = book
+//                controller.navigationItem.rightBarButtonItem = self.splitViewController?.displayModeButtonItem()
+//                controller.navigationItem.leftItemsSupplementBackButton = true
+//            }
+//        }
+//    }
 
     // MARK: - Table view data source
     
@@ -145,10 +145,39 @@ class MasterViewController: UITableViewController, AGTAsyncImageDelegate {
         
         self.tableView.reloadData()
     }
+    
+    // MARK: - Navigation
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let book : KCBook?
+        
+        if sortByTitle {
+            book = model?.books[indexPath.row]
+        }else{
+            book = model?.bookAtIndex(indexPath.item, tag: KCBookTag(withName: (model?.tags[indexPath.section].tagName)!))
+        }
 
+        if let navigation = self.navigationController {
+            // Si está en vertical
+            self.navigationController?.pushViewController(detailViewController!, animated: true)
+        }else{
+            // Si está en horizontal o es ipad
+//            if let split = self.splitViewController {
+//                let controllers = split.viewControllers
+//                self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+//                self.detailViewController!.navigationItem.rightBarButtonItem = self.splitViewController?.displayModeButtonItem()
+//                self.detailViewController!.navigationItem.leftItemsSupplementBackButton = true
+//            }
+        }
+        //Notification
+        
+        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "bookDidChange", object: book!))
+        
+        
+    }
     
     deinit{
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 }
-
