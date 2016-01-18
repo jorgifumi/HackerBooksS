@@ -69,8 +69,7 @@ class DetailViewController: UIViewController, AGTAsyncImageDelegate {
             
             if let controller = segue.destinationViewController as? PDFViewController {
                 if let model = self.detailModel{
-                    controller.title  = model.title
-                    controller.pdfUrl = model.pdf
+                    controller.book = model
                 }
             }
             

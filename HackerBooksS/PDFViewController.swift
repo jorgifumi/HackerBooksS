@@ -12,14 +12,13 @@ class PDFViewController: UIViewController {
 
     @IBOutlet weak var webView: UIWebView!
     
-    var pdfUrl : NSURL?
+    var book : KCBook?
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let url = pdfUrl {
-            webView.loadRequest(NSURLRequest(URL: url))
-        }
         // Do any additional setup after loading the view.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "bookChanged:", name: "bookDidChange", object: nil)
+        self.syncView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,15 +26,21 @@ class PDFViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func bookChanged(notification : NSNotification) {
+        book = notification.object as? KCBook
+        self.syncView()
     }
-    */
+    
+    func syncView() {
+       
+        self.title = book?.title
+        if let pdfUrl = book?.pdf {
+            webView.loadRequest(NSURLRequest(URL: pdfUrl))
+        }
 
+    }
+
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
 }

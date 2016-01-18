@@ -158,19 +158,19 @@ class MasterViewController: UITableViewController, AGTAsyncImageDelegate {
             book = model?.bookAtIndex(indexPath.item, tag: KCBookTag(withName: (model?.tags[indexPath.section].tagName)!))
         }
 
-        if let navigation = self.navigationController {
-            // Si está en vertical
-            self.navigationController?.pushViewController(detailViewController!, animated: true)
-        }else{
-            // Si está en horizontal o es ipad
-//            if let split = self.splitViewController {
-//                let controllers = split.viewControllers
-//                self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-//                self.detailViewController!.navigationItem.rightBarButtonItem = self.splitViewController?.displayModeButtonItem()
-//                self.detailViewController!.navigationItem.leftItemsSupplementBackButton = true
-//            }
-        }
-        //Notification
+//        if let navigation = self.navigationController {
+//            // Si está en vertical
+//            self.navigationController?.pushViewController(detailViewController!, animated: true)
+//        }else{
+//            // Si está en horizontal o es ipad
+////            if let split = self.splitViewController {
+////                let controllers = split.viewControllers
+////                self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+////                self.detailViewController!.navigationItem.rightBarButtonItem = self.splitViewController?.displayModeButtonItem()
+////                self.detailViewController!.navigationItem.leftItemsSupplementBackButton = true
+////            }
+//        }
+//        //Notification
         
         NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "bookDidChange", object: book!))
         
